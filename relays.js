@@ -62,9 +62,9 @@ Relays.prototype.execDriveCmd = function(drive_cmd) {
         case driveCmdEnum.REMOTE_UP:
             this.rm_plus_state = b.HIGH;
             this.rm_minus_state = b.HIGH;
-            console.log('setting rm_plus_sel (P9_40) to high')
+            console.log('setting rm_plus_sel to high - ' + rm_plus_sel)
             b.digitalWrite(this.rm_plus_sel, this.rm_plus_state);
-            console.log('setting rm_minus_sel (P9_15) to high')
+            console.log('setting rm_minus_sel to high - ' + rm_minus_sel)
             b.digitalWrite(this.rm_minus_sel, this.rm_minus_state);
             console.log("Remote state up");
             break;
@@ -72,65 +72,65 @@ Relays.prototype.execDriveCmd = function(drive_cmd) {
         case driveCmdEnum.REMOTE_DOWN:
             this.rm_plus_state = b.LOW;
             this.rm_minus_state = b.LOW;
+            console.log('setting rm_plus_sel to low - ' + rm_plus_sel)
             b.digitalWrite(this.rm_plus_sel, this.rm_plus_state);
-            console.log('setting rm_plus_sel (P9_40) to low')
+            console.log('setting rm_minus_sel to low - ' + rm_minus_sel)
             b.digitalWrite(this.rm_minus_sel, this.rm_minus_state);
-            console.log('setting rm_minus_sel (P9_15) to low')
             console.log("Remote state down");
             break;
         
         case driveCmdEnum.FORWARD_UP:
             this.remote_accel_plus_state = b.HIGH;
-            console.log('setting remote_accel_plus_state (P9_23) to high')
+            console.log('setting remote_accel_plus_sel to high - ' + remote_accel_plus_sel)
             b.digitalWrite(this.remote_accel_plus_sel, this.remote_accel_plus_state);
             console.log("Forward state up");
             break;
         
         case driveCmdEnum.FORWARD_DOWN:
             this.remote_accel_plus_state = b.LOW;
-            console.log('setting remote_accel_plus_state (P9_23) to low')
+            console.log('setting remote_accel_plus_sel to low - ' + remote_accel_plus_sel)
             b.digitalWrite(this.remote_accel_plus_sel, this.remote_accel_plus_state);
             console.log("Forward state down");
             break;
         
         case driveCmdEnum.BACK_UP:
             this.remote_accel_minus_state = b.HIGH;
-            console.log('setting remote_accel_minus_state (P9_25) to high')
+            console.log('setting remote_accel_minus_sel to high - ' + remote_accel_minus_sel)
             b.digitalWrite(this.remote_accel_minus_sel, this.remote_accel_minus_state);
             console.log("Back state up");
             break;
         
         case driveCmdEnum.BACK_DOWN:
             this.remote_accel_minus_state = b.LOW;
-            console.log('setting remote_accel_minus_state (P9_25) to low')
+            console.log('setting remote_accel_minus_sel to low - ' + remote_accel_minus_sel)
             b.digitalWrite(this.remote_accel_minus_sel, this.remote_accel_minus_state);
             console.log("Back state down");
             break;
             
         case driveCmdEnum.RIGHT_UP:
             this.remote_steer_plus_state = b.HIGH;
-            console.log('setting remote_steer_plus_state (P9_27) to high')
+            console.log('setting remote_steer_plus_sel to high - ' + remote_steer_plus_sel)
             b.digitalWrite(this.remote_steer_plus_sel, this.remote_steer_plus_state);
             console.log("Right state up");
             break;
         
         case driveCmdEnum.RIGHT_DOWN:
             this.remote_steer_plus_state = b.LOW;
-            console.log('setting remote_steer_plus_state (P9_27) to low')
+            console.log('setting remote_steer_plus_sel to low - ' + remote_steer_plus_sel)
             b.digitalWrite(this.remote_steer_plus_sel, this.remote_steer_plus_state);
             console.log("Right state down");
             break;
             
         case driveCmdEnum.LEFT_UP:
             this.remote_steer_minus_state = b.HIGH;
-            console.log('setting remote_steer_minus_state (P9_30) to high')
+            console.log('setting remote_steer_minus_sel to high - ' + remote_steer_minus_sel)
             b.digitalWrite(this.remote_steer_minus_sel, this.remote_steer_minus_state);
             console.log("Left state up");
             break;
         
         case driveCmdEnum.LEFT_DOWN:
             this.remote_steer_minus_state = b.LOW;
-            console.log('setting remote_steer_minus_state (P9_30) to low')
+            console.log('setting remote_steer_minus_sel to low - ' + remote_steer_minus_sel)
             b.digitalWrite(this.remote_steer_minus_sel, this.remote_steer_minus_state);
             console.log("Left state down");
             break;
