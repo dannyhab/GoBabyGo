@@ -23,7 +23,7 @@ function car_remote_char(car) {
 util.inherits(car_remote_char, bleno.Characteristic);
 
 car_remote_char.prototype.onWriteRequest = function(data, offset, withoutResponse, callback) { 
-  
+  console.log('write request for remote char');
   if (offset) {
     callback(this.RESULT_ATTR_NOT_LONG);
   }
@@ -31,21 +31,26 @@ car_remote_char.prototype.onWriteRequest = function(data, offset, withoutRespons
     callback(this.RESULT_INVALID_ATTRIBUTE_LENGTH);
   }
   else {
-	this.car.remote = data.readInt8(0);
-	//self.updateValueCallback(data);
-	this.car.exec_cmd(Car.DriveCommands.REMOTE, this.car.remote);
+    console.log('write data:');
+    console.log(data);
+	  this.car.remote = data.readInt8(0);
+	  //self.updateValueCallback(data);
+	  this.car.exec_cmd(Car.DriveCommands.REMOTE, this.car.remote);
     callback(this.RESULT_SUCCESS);
   }
   
 };
 
 car_remote_char.prototype.onReadRequest = function(offset, callback) {
+  console.log('read request for remote char');
   if (offset) {
     callback(this.RESULT_ATTR_NOT_LONG, null);
   }
   else {
     var data = new Buffer(1);
     data.writeInt8(this.car.remote, 0);
+    console.log('read data:');
+    console.log(data);
     callback(this.RESULT_SUCCESS, data);
   }
 };

@@ -30,7 +30,7 @@ car_forward_char.prototype.onWriteRequest = function(data, offset, withoutRespon
   else {
 	this.car.forward = data.readInt8(0);
 	//self.updateValueCallback(data);
-	this.car.exec_cmd(Car.DriveCommands.FORWARD, this.car.forward);
+	this.car.exec_cmd(Car.DriveCommands.BACK, this.car.forward);
     callback(this.RESULT_SUCCESS);
   }
   
